@@ -1,0 +1,9 @@
+anthropic>=0.40.0
+python-dotenv>=1.0.0
+ipykernel>=6.29.0
+
+# Lab 04 - data-science env
+pandas>=2.2.0
+numpy>=1.26.0
+matplotlib>=3.9.0
+scikit-learn>=1.5.0

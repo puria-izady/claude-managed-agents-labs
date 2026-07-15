@@ -1,0 +1,11 @@
+[project]
+name = "bugfixer-sample"
+version = "0.1.0"
+description = "Sample repo with a planted bug for the Managed Agents bug-fixer lab."
+requires-python = ">=3.9"
+
+[tool.pytest.ini_options]
+# Put the repo root on sys.path so `from src.math import factorial` resolves
+# no matter where pytest is invoked from.
+pythonpath = ["."]
+testpaths = ["tests"]

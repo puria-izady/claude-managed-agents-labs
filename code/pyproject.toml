@@ -1,0 +1,17 @@
+[project]
+name = "mastering-claude-managed-agents-labs"
+version = "0.1.0"
+description = "Shared Python environment for the Mastering Claude Managed Agents labs."
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.40.0",
+    "python-dotenv>=1.0.0",
+    "ipykernel>=6.29.0",
+    "pandas>=2.2.0",
+    "numpy>=1.26.0",
+    "matplotlib>=3.9.0",
+    "scikit-learn>=1.5.0",
+]
+
+[tool.uv]
+package = false
