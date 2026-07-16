@@ -1,11 +1,9 @@
-# Lab 06 - Linear-aware MCP agent + vault
+# Lab 06 - Linear + Slack MCP agent with Vaults
 
-Wires an agent to the public Linear MCP server, attaches an existing Claude
-Managed Agents vault credential, and asks the agent to triage issues and file a
-new bug.
-
-The folder keeps the old `slack` slug because earlier course links point here;
-the current lab content is Linear.
+Wires an agent to the public Linear MCP server and optionally attaches Slack as
+a second MCP connection. Each connection is authenticated through a Claude
+Managed Agents vault, and the agent triages Linear issues while remaining able
+to use Slack context or actions when configured.
 
 ## Env vars
 

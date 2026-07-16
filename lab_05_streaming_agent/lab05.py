@@ -1,4 +1,4 @@
-"""Lab 05 - Streaming REPL with a live cost meter.
+"""Lab 05 - Streaming Agent Sessions with a live cost meter.
 
 A tiny terminal console that talks to one persistent session. It:
   1. creates an agent + environment + session,
@@ -20,8 +20,8 @@ creating fresh ones:
     export AGENT_ID="agent_..."
     export ENV_ID="env_..."
 
-Commands inside the REPL:
-    quit / exit   end the REPL and print the final total
+Commands inside the session console:
+    quit / exit   end the console and print the final total
     interrupt     send user.interrupt to halt the agent cleanly
 """
 
@@ -61,7 +61,7 @@ def get_or_create_env(client: Anthropic) -> str:
     if os.environ.get("ENV_ID"):
         return os.environ["ENV_ID"]
     env = client.beta.environments.create(
-        name="streaming-repl",
+        name="streaming-agent-sessions",
         config={"type": "cloud", "networking": {"type": "unrestricted"}},
         betas=BETAS,
     )
@@ -87,7 +87,7 @@ def main() -> None:
     session = client.beta.sessions.create(
         agent=agent_id,
         environment_id=env_id,
-        title="Lab 5 streaming REPL",
+        title="Lab 5 streaming agent sessions",
         betas=BETAS,
     )
     print(f"session.id = {session.id}")

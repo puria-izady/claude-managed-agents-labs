@@ -1,7 +1,8 @@
-"""Lab 06 - Linear-aware MCP agent + vault credential.
+"""Lab 06 - Linear + Slack MCP agent with vault credentials.
 
-Wires an agent to the PUBLIC Linear MCP server, attaches an existing per-user
-vault credential, and asks the agent to triage issues and file a new one.
+Wires an agent to the PUBLIC Linear MCP server and optionally attaches Slack as
+a second MCP server. The agent uses the connections to triage issues, file a
+new one, and work with Slack context when configured.
 
 The Linear MCP is a remote (SaaS) connector. We never run a local MCP tunnel
 (that surface is research preview). The harness reaches the public Linear

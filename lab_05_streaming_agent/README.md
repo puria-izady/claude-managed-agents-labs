@@ -1,4 +1,4 @@
-# Lab 05 - Streaming REPL with a live cost meter
+# Lab 05 - Streaming Agent Sessions
 
 A tiny terminal console: chat with one persistent session, watch the agent's
 tool use stream by live, and track a running cost on the session.
@@ -21,17 +21,17 @@ export MODEL="claude-haiku-4-5-20251001"     # optional, default claude-haiku-4-
 python lab05.py
 ```
 
-## Commands inside the REPL
+## Commands inside the session console
 
 | Input | Behavior |
 |--|--|
 | `<any prompt>` | Sends a `user.message`, streams the agent's reply and tool use |
 | `interrupt` | Sends `user.interrupt`, halts the agent cleanly, preserves state |
-| `quit` / `exit` | Ends the REPL and prints the final running total |
+| `quit` / `exit` | Ends the console and prints the final running total |
 
 ## Files
 
-- `lab05.py`: the REPL loop. Creates agent/env/session, streams events, prints
+- `lab05.py`: the interactive session loop. Creates agent/env/session, streams events, prints
   `agent.message` text and `agent.tool_use` markers, ticks a running cost.
 - `../shared/cost_meter.py`: shared list-price estimate helper used by all
   session-based labs.
