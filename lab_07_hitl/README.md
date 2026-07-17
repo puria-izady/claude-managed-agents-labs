@@ -39,6 +39,8 @@ terminal.
 - `explain <reason>` -> deny, and the reason is sent as `deny_message` so the
   model adapts on its next turn.
 
-Writes to `/tmp/...` are auto-allowed by the policy with no prompt. Point the
+Writes to `/tmp/...` are auto-allowed by the policy with no prompt. The policy
+accepts both `path` and `file_path` write payloads and normalizes notebook
+VS Code resource links. Point the
 task at `/workspace/...` to see the write approval prompt; point it at `/tmp/...`
 to see the auto-allow path.

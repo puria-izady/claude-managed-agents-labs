@@ -66,7 +66,7 @@ For specific labs you'll also need:
 | Lab | Extra env var |
 |--|--|
 | 03 - Research Agent | `GOOGLE_DOCS_VAULT_ID` |
-| 06 - Linear + Slack MCP agent | `LINEAR_VAULT_ID`, optional `SLACK_VAULT_ID` |
+| 06 - Linear + Slack MCP agent | `LINEAR_VAULT_ID` (contains both credentials), `SLACK_CHANNEL` |
 | 12 - Bug-fixer + PR | `GITHUB_TOKEN`, `GITHUB_REPO_URL`, `GITHUB_VAULT_ID` |
 | 13 - Capstone | `GOOGLE_DOCS_VAULT_ID`, `SLACK_VAULT_ID`, `SLACK_CHANNEL` |
 

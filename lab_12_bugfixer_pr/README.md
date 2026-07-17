@@ -10,6 +10,13 @@ Attaches your GitHub repo as a session resource, asks the agent to fix a failing
   repositories**, select your lab repo, then grant these repository
   permissions: `Contents: Read and write` and `Pull requests: Read and write`.
   This is only for attaching the repo resource.
+
+  ![GitHub fine-grained PAT configuration](assets/GitHub%20PAT%20configuration.png)
+
+  The token summary should show **Read and Write access to code and pull
+  requests**, as in the screenshot. The example screenshot has access to all
+  repositories owned by the user; for this lab, keep the token narrower by
+  selecting only your lab repo.
 - A GitHub MCP connection configured in Claude Managed Agents Vaults. In Claude
   Console, create the GitHub MCP credential with **Bearer Token** auth and paste
   the same fine-grained PAT as the bearer token. Copy the vault id that starts
