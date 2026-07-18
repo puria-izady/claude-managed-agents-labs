@@ -1,23 +1,17 @@
 # Lab 06 - Linear + Slack MCP agent with Vaults
 
-Wires an agent to the public Linear MCP server and optionally attaches Slack as
-a second MCP connection. Each connection is authenticated through a Claude
-Managed Agents vault, and the agent triages Linear issues while remaining able
-to use Slack context or actions when configured.
+Wires an agent to the public Linear and Slack MCP servers. Both MCP OAuth
+credentials live in the same Claude Managed Agents vault. After creating the
+Linear ticket, the agent posts a completion update to Slack with the ticket
+title and issue identifier.
 
 ## Env vars
 
 ```bash
 export ANTHROPIC_API_KEY="sk-ant-..."
-export LINEAR_VAULT_ID="vlt_..."                          # existing Linear vault
-export LINEAR_MCP_URL=""                                  # optional override
-export SLACK_VAULT_ID=""                                  # optional Slack vault
-export SLACK_MCP_URL=""                                   # optional override
+export LINEAR_VAULT_ID="vlt_..."  # vault containing Linear and Slack
+export SLACK_CHANNEL="#research"  # completion-update destination
 ```
-
-The script also keeps an advanced fallback that can create/register a Linear
-vault from raw OAuth values, but the notebook path should use
-`LINEAR_VAULT_ID` from Claude Console.
 
 ## Run
 
@@ -25,34 +19,32 @@ vault from raw OAuth values, but the notebook path should use
 uv run --project .. --env-file ../.env python lab06.py
 ```
 
-## Where to get the Linear vault
+## Configure the shared vault
 
 - In Claude Console, open the Managed Agents area and create or select a vault.
-- Add/connect a Linear MCP OAuth credential to that vault.
+- Add/connect both Linear and Slack MCP OAuth credentials to that same vault.
 - Copy the vault id that starts with `vlt_` into `LINEAR_VAULT_ID`.
-- Leave `LINEAR_MCP_URL` blank unless the vault contains multiple MCP
-  credentials and the code cannot choose the Linear one automatically.
-- Optional: set `SLACK_VAULT_ID` too if you have a Slack MCP credential in a
-  Managed Agents vault. The script/notebook will attach Slack alongside Linear.
 
-The public Linear MCP URL is usually `https://mcp.linear.app/mcp`. It is a
-hosted SaaS endpoint, so no local server or tunnel is required.
+The script reads both MCP server URLs directly from the vault credentials. No
+manual Linear or Slack MCP URL configuration is used.
 
 ## Expected output
 
 ```
 agent.id = agent_01...
-vault.id = vlt_01... (existing Linear vault)
+vault.id = vlt_01... (Linear + Slack)
 env.id   = env_01...
 session.id = sesn_01...
 
 I'll start by pulling your unassigned issues...
 [mcp: linear_list_issues]
 [mcp: linear_create_issue]
+[mcp: slack_post_message]
 
 Filed ENG-142 "Login crashes on empty password".
+Posted the completion update to #research.
 --- session idle ---
 ```
 
-If you see `session.error: mcp_auth_failed`, confirm the vault contains a Linear
-MCP OAuth credential and that the credential URL matches the agent's MCP URL.
+If you see `session.error: mcp_auth_failed`, confirm the shared vault contains
+valid Linear and Slack MCP OAuth credentials.
