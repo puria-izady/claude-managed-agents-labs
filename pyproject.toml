@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Shared Python environment for the Mastering Claude Managed Agents labs."
 requires-python = ">=3.11"
 dependencies = [
-    "anthropic>=0.40.0",
+    "anthropic==1.8.0",
     "python-dotenv>=1.0.0",
     "ipykernel>=6.29.0",
     "pandas>=2.2.0",

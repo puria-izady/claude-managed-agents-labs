@@ -55,7 +55,7 @@ cp .env.example .env
 # Edit .env with your real keys
 ```
 
-Required at minimum:
+Configure your Anthropic API Key:
 
 ```bash
 export ANTHROPIC_API_KEY="sk-ant-..."
