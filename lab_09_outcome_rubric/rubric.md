@@ -16,4 +16,4 @@
 
 ## Output Quality
 - A single Markdown file is written to /mnt/session/outputs/action_plan.md
-- The plan is concise, scannable, and uses only information from /workspace/meeting_notes.md
+- The plan is concise, scannable, and uses only information from /mnt/session/uploads/meeting_notes.md
