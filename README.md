@@ -55,14 +55,7 @@ cp .env.example .env
 # Edit .env with your real keys
 ```
 
-Verify that the shared environment uses the SDK version tested with these labs:
-
-```bash
-uv run python -c "import anthropic; print(anthropic.__version__)"
-# Expected: 1.8.0
-```
-
-Required at minimum:
+Configure your Anthropic API Key:
 
 ```bash
 export ANTHROPIC_API_KEY="sk-ant-..."
